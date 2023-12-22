@@ -46,7 +46,7 @@ int newton(double a, double b, double eps, double& X) {
     int iterations = 0;
     X = (a + b) / 2;
     do {
-        X = X - func(X) / (4 * X * X * X * X + 3 * X * X - sin(X));
+        X = X - func(X) / (4 * pow(X, 4) + 3 * pow(X, 2) - sin(X));
         iterations++;
     } while (fabs(func(X)) > eps);
     return iterations;
